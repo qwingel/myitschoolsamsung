@@ -1,21 +1,22 @@
 package com.example.myitschoolsamsung;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
-    Button for_test;
-    SharedPreferences sPref;
+
+public class NotConnected extends AppCompatActivity {
+
+    Button toConnectAgain;
     public boolean isConnectingToNetwork(Context applicationContext){
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getActiveNetworkInfo();
@@ -35,29 +36,33 @@ public class MainActivity extends AppCompatActivity {
             return false; // Wi-Fi adapter is OFF
         }
     }
-    @SuppressLint("UseCompatLoadingForDrawables")
+
+    public void startTimer(int startMillis, int finishMillis){
+        new CountDownTimer(startMillis, finishMillis){
+            @Override
+            public void onTick(long l) {
+                if(isConnectingToNetwork(getApplicationContext()) || checkWifiOnAndConnected()) {
+                    this.cancel();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onFinish(){ toConnectAgain.setVisibility(View.VISIBLE); }
+        }.start();
+    }
     @Override
     protected void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
-
-        if(!isConnectingToNetwork(getApplicationContext()) && !checkWifiOnAndConnected()){
-            Intent intent = new Intent(getApplicationContext(), NotConnected.class);
-            startActivity(intent);
-        }
-        //^^^^^^^^^^^^ проверка на подключение к интернету ^^^^^^^^^^^^^^^^^
-
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.not_connected);
         getSupportActionBar().hide();
 
-        for_test = (Button) findViewById(R.id.testet);
+        toConnectAgain = findViewById(R.id.connect_again);
 
-        sPref = getSharedPreferences("Account", MODE_PRIVATE);
-        String savedText = sPref.getString("Login", "");
-        for_test.setText(savedText);
-        for_test.setOnClickListener(view -> {
-            Intent toLoginWindow = new Intent(getApplicationContext(), Log_in_window.class);
-            startActivity(toLoginWindow);
+        toConnectAgain.setOnClickListener(view -> {
+            toConnectAgain.setVisibility(View.INVISIBLE);
+            startTimer(7000, 1000);
         });
     }
-
 }

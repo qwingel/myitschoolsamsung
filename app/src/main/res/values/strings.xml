@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">myitschoolsamsung</string>
+    <string name="authorization">Авторизация</string>
+    <string name="phone">Телефон</string>
+    <string name="enter_phone_num">Введите номер телефона для входа</string>
+    <string name="code_sent">Код отправлен на номер +</string>
+    <string name="tint_phone_text">+7(___)___-__-__</string>
+    <string name="to_login">Войти</string>
+    <string name="empty"></string>
+    <string name="not_connected">Ошибка заргузки.\nПроверьте\nподключение к сети</string>
 </resources>
