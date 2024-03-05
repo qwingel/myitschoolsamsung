@@ -1,11 +1,15 @@
 <resources>
-    <string name="app_name">myitschoolsamsung</string>
+    <string name="app_name">SkyLine</string>
     <string name="authorization">Авторизация</string>
     <string name="phone">Телефон</string>
+    <string name="registration">Регистрация</string>
     <string name="enter_phone_num">Введите номер телефона для входа</string>
+    <string name="error_phone_num">Ошибка. Возможно,\n неправильно введен номер</string>
+    <string name="pls_enter_pass">Пароль может понадобиться далее</string>
+    <string name="enter_pass"><font size="18">Введите пароль</font></string>
     <string name="code_sent">Код отправлен на номер +</string>
     <string name="tint_phone_text">+7(___)___-__-__</string>
     <string name="to_login">Войти</string>
-    <string name="empty"></string>
+    <string name="welcome">Добро\nпожаловать,\nАртём!</string>
     <string name="not_connected">Ошибка заргузки.\nПроверьте\nподключение к сети</string>
 </resources>

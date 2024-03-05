@@ -18,79 +18,61 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class Registration extends AppCompatActivity {
-    TextView phoneNumber;
-    EditText password, login, birthday, name, surname;
-    Button toNext, toCancel;
+    EditText password;
+    Button toNext;
+
+    public void responseRegistration(String number, String pass){
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(RequestToServe.SQurl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RequestToServe.UserService userService = retrofit.create(RequestToServe.UserService.class);
+        Call<RequestToServe.ResponseRegistrationMessage> toRegistr = userService.registration(new RequestToServe.RegistrationRequest(number, pass));
+        toRegistr.enqueue(new Callback<RequestToServe.ResponseRegistrationMessage>() {
+            @Override
+            public void onResponse(Call<RequestToServe.ResponseRegistrationMessage> call, Response<RequestToServe.ResponseRegistrationMessage> response) {
+                if(response.body() != null){
+                    if(response.body().status.equals("failed")){
+                        Toast.makeText(getApplicationContext(),
+                                "Failed",
+                                Toast.LENGTH_LONG).show();
+                    } else if(response.body().status.equals("Error")) {
+                        Toast.makeText(getApplicationContext(),
+                                "Ошибка",
+                                Toast.LENGTH_LONG).show();
+                    } else {
+                        Intent intent = new Intent(getApplicationContext(), ConfirmNumber.class);
+                        intent.putExtra("PhoneNumber", number);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_left);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RequestToServe.ResponseRegistrationMessage> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
-//        setContentView(R.layout.registration);
+        setContentView(R.layout.registration);
         getSupportActionBar().hide();
-//        toNext = (Button) findViewById(R.id.tonext);
-//        toCancel = (Button) findViewById(R.id.tocancel);
-//
-//        phoneNumber = (TextView) findViewById(R.id.phoneNumber);
-//
-//        login = (EditText) findViewById(R.id.login);
-//        name = (EditText) findViewById(R.id.name);
-//        surname = (EditText) findViewById(R.id.surname);
-//        birthday = (EditText) findViewById(R.id.birthday);
-//        password = (EditText) findViewById(R.id.pass);
 
         Intent bIntent = getIntent();
         String phoneNum = bIntent.getStringExtra("PhoneNumber");
 
-        phoneNumber.setText(phoneNum);
+        password = (EditText) findViewById(R.id.password);
+        password.setText("");
+        toNext = (Button) findViewById(R.id.to_next);
         toNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String data = phoneNum + login.getText().toString() + name.getText().toString()
-                        + surname.getText().toString() + birthday.getText().toString() + password.getText().toString();
-                Retrofit retrofit = new Retrofit.Builder().baseUrl(RequestToServe.SQurl)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-                RequestToServe.UserService userService = retrofit.create(RequestToServe.UserService.class);
-                Call<RequestToServe.ResponseMessage> toRegistration = userService.registration(new RequestToServe.RegistrationRequest(phoneNum, data));
-                toRegistration.enqueue(new Callback<RequestToServe.ResponseMessage>() {
-                    @Override
-                    public void onResponse(Call<RequestToServe.ResponseMessage> call, Response<RequestToServe.ResponseMessage> response) {
-                        if(response.body() != null){
-                            if(response.body().status.equals("Failed")){
-                                Toast.makeText(
-                                        getApplicationContext(),
-                                        "Ошибка",
-                                        Toast.LENGTH_LONG
-                                ).show();
-                                Intent intent = new Intent(getApplicationContext(), Log_in_window.class);
-                                startActivity(intent);
-                            } else {
-                                String welcome = response.body().message;
-                                String[] user_data = data.split(" ");
-//                                UserDATAS userDatas = new UserDATAS();
-//                                userDatas.setForIt(getIntentPhoneText, user_data[0], user_data[1], user_data[2], user_data[3], user_data[4], user_data[5]);
-                                Toast.makeText(
-                                        getApplicationContext(),
-                                        welcome,
-                                        Toast.LENGTH_LONG
-                                ).show();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<RequestToServe.ResponseMessage> call, Throwable t) {
-                        t.printStackTrace();
-                    }
-                });
-            }
-        });
-
-        toCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Log_in_window.class);
-                startActivity(intent);
+                String pass = password.getText().toString();
+                responseRegistration(phoneNum, pass);
             }
         });
     }

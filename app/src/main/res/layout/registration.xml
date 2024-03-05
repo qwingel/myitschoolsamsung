@@ -16,33 +16,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:orientation="vertical">
+            android:layout_weight="6"
+            android:orientation="horizontal">
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="3">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:orientation="vertical">
             </LinearLayout>
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical">
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="40">
+                </LinearLayout>
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/plugin_icon">
                 </ImageView>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7">
-                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="9">
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -53,12 +55,12 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="6">
+                android:layout_weight="4">
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -68,11 +70,11 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="7">
+                        android:layout_weight="1">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/phone"
+                            android:text="@string/registration"
                             android:textSize="32sp"
                             android:textColor="#fff"
                             android:fontFamily="@font/raleway"
@@ -82,22 +84,21 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="4">
+                        android:layout_weight="1">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/enter_phone_num"
+                            android:text="@string/pls_enter_pass"
                             android:textSize="16sp"
                             android:fontFamily="@font/raleway"
-                            android:textColor="#fff"
-                            android:layout_gravity="center|left">
+                            android:textColor="#fff">
                         </TextView>
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
+                    android:layout_weight="1"
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -105,28 +106,23 @@
                         android:layout_weight="3"
                         android:orientation="horizontal"
                         android:background="@drawable/edittext">
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="+7"
-                            android:textSize="24sp"
-                            android:textColor="@color/pr_black_green"
-                            android:fontFamily="@font/raleway"
-                            android:gravity="center|right">
-                        </TextView>
+                            android:layout_weight="1">
+                        </LinearLayout>
                         <EditText
-                            android:id="@+id/phonenumber"
+                            android:id="@+id/password"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="10"
-                            android:text="123"
-                            android:textSize="24sp"
-                            android:fontFamily="@font/raleway"
+                            android:layout_weight="20"
+                            android:text="*"
+                            android:textSize="36sp"
+                            android:fontFamily="@font/raleway_medium"
                             android:textColor="@color/pr_black_green"
-                            android:maxLength="10"
-                            android:inputType="number|phone"
+                            android:inputType="textPassword"
                             android:gravity="center_vertical"
+                            android:hint="@string/enter_pass"
                             android:cursorVisible="false"
                             android:background="@color/pr_light_grey">
                         </EditText>
@@ -134,12 +130,17 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="1">
+<!--                            <Button-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:background="@drawable/hide_1">-->
+<!--                            </Button>-->
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2">
+                        android:layout_weight="5">
                     </LinearLayout>
                     <Button
                         android:id="@+id/to_next"
@@ -153,30 +154,18 @@
                         android:fontFamily="@font/raleway_medium"
                         android:gravity="center">
                     </Button>
-                    <TextView
-                        android:id="@+id/tv_Error"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:text="@string/error_phone_num"
-                        android:textSize="14sp"
-                        android:fontFamily="@font/raleway_bold"
-                        android:textColor="@color/pr_black_green"
-                        android:visibility="invisible"
-                        android:gravity="center">
-                    </TextView>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="6">
+                android:layout_weight="4">
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="14"
+            android:layout_weight="20"
             android:orientation="vertical">
         </LinearLayout>
     </LinearLayout>

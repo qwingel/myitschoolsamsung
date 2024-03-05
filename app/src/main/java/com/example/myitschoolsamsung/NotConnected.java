@@ -45,6 +45,7 @@ public class NotConnected extends AppCompatActivity {
                     this.cancel();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_left);
                 }
             }
 

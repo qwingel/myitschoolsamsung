@@ -21,7 +21,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="4">
+                android:layout_weight="7">
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="7">
+                    android:layout_weight="5">
                 </LinearLayout>
                 <ImageView
                     android:layout_width="match_parent"
@@ -39,16 +39,11 @@
                     android:layout_weight="1"
                     android:src="@drawable/plugin_icon">
                 </ImageView>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="4">
+                android:layout_weight="7">
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -59,93 +54,86 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="3">
+                android:layout_weight="24">
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="5"
+                android:layout_weight="0.01"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_weight="5"
                     android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="Подтверждение"
-                            android:textSize="32sp"
-                            android:textColor="#fff"
-                            android:fontFamily="@font/raleway"
-                            android:gravity="bottom">
-                        </TextView>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2">
-                        <TextView
-                            android:id="@+id/setTextPhone"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/code_sent"
-                            android:textSize="16sp"
-                            android:fontFamily="@font/raleway"
-                            android:textColor="#fff">
-                        </TextView>
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <EditText
-                        android:id="@+id/codeForConfrirm"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="123"
-                        android:textSize="50sp"
-                        android:textColor="@color/pr_black_green"
-                        android:letterSpacing="0.7"
-                        android:maxLength="4"
-                        android:inputType="number"
-                        android:gravity="center"
-                        android:cursorVisible="false"
-                        android:background="@drawable/edittext">
-                    </EditText>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2">
                     <TextView
-                        android:id="@+id/codeTimer"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Отправить код повторно 00:00"
-                        android:textSize="16sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Подтверждение"
+                        android:textSize="32sp"
                         android:textColor="#fff"
                         android:fontFamily="@font/raleway"
-                        android:gravity="center">
+                        android:gravity="bottom">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/setTextPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Код отправлен на номер +79965909963"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/raleway"
+                        android:textColor="#fff">
                     </TextView>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="500">
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/codeForConfrirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1234"
+                    android:textSize="45sp"
+                    android:textColor="@color/pr_black_green"
+                    android:letterSpacing="0.7"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:cursorVisible="false"
+                    android:background="@drawable/edittext">
+                </EditText>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="400">
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/codeTimer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Отправить код повторно 00:00"
+                    android:textSize="14sp"
+                    android:textColor="#fff"
+                    android:fontFamily="@font/raleway"
+                    android:gravity="center">
+                </TextView>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="3">
+                android:layout_weight="24">
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="16"
+            android:layout_weight="14"
             android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -177,7 +165,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="12">
+                    android:layout_weight="20">
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout

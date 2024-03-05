@@ -9,6 +9,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +36,28 @@ public class MainActivity extends AppCompatActivity {
             return false; // Wi-Fi adapter is OFF
         }
     }
+
+    public void startTimer(int startMillis, int finishMillis){
+        new CountDownTimer(startMillis, finishMillis){
+            @Override
+            public void onTick(long l) {
+            }
+            @Override
+            public void onFinish() {
+                sPref = getSharedPreferences("account", MODE_PRIVATE);
+                String savedText = sPref.getString("phone", null);
+                Intent intent;
+                if(savedText == null)
+                    intent = new Intent(getApplicationContext(), Log_in_window.class);
+                else {
+                    intent = new Intent(getApplicationContext(), Welcome.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                }
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        }.start();
+    }
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -43,21 +66,14 @@ public class MainActivity extends AppCompatActivity {
         if(!isConnectingToNetwork(getApplicationContext()) && !checkWifiOnAndConnected()){
             Intent intent = new Intent(getApplicationContext(), NotConnected.class);
             startActivity(intent);
-        }
+            overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_right);
+        } else {
         //^^^^^^^^^^^^ проверка на подключение к интернету ^^^^^^^^^^^^^^^^^
 
-        setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+            setContentView(R.layout.activity_main);
+            getSupportActionBar().hide();
 
-        for_test = (Button) findViewById(R.id.testet);
-
-        sPref = getSharedPreferences("Account", MODE_PRIVATE);
-        String savedText = sPref.getString("Login", "");
-        for_test.setText(savedText);
-        for_test.setOnClickListener(view -> {
-            Intent toLoginWindow = new Intent(getApplicationContext(), Log_in_window.class);
-            startActivity(toLoginWindow);
-        });
+            startTimer(2300, 1000);
+        }
     }
-
 }
