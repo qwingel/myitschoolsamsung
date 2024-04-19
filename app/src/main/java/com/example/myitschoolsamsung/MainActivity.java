@@ -27,14 +27,10 @@ public class MainActivity extends AppCompatActivity {
         WifiManager wifiMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         if (wifiMgr.isWifiEnabled()) { // Wi-Fi adapter is ON
             WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
-            if( wifiInfo.getNetworkId() == -1 ){
-                return false; // Not connected to an access point
-            }
-            return true; // Connected to an access point
+            return wifiInfo.getNetworkId() != -1; // Not connected to an access poin
+// Connected to an access point
         }
-        else {
-            return false; // Wi-Fi adapter is OFF
-        }
+        else return false; // Wi-Fi adapter is OFF
     }
 
     public void startTimer(int startMillis, int finishMillis){
@@ -47,9 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 sPref = getSharedPreferences("account", MODE_PRIVATE);
                 String savedText = sPref.getString("phone", null);
                 Intent intent;
-                if(savedText == null)
+                if(savedText == null) {
                     intent = new Intent(getApplicationContext(), Log_in_window.class);
-                else {
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                } else {
                     intent = new Intent(getApplicationContext(), Welcome.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 }

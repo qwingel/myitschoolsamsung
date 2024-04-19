@@ -12,4 +12,10 @@
     <string name="to_login">Войти</string>
     <string name="welcome">Добро\nпожаловать,\nАртём!</string>
     <string name="not_connected">Ошибка заргузки.\nПроверьте\nподключение к сети</string>
+    <string name="tickets_search">Поиск билетов</string>
+    <string name="towhere">Куда</string>
+    <string name="fromwhere">Откуда</string>
+    <string name="nearestTicket">ближайший рейс</string>
+    <string name="theBestPrice">лучшая цена</string>
+    <string name="delayedTickets">Отложенные\nбилеты (0)</string>
 </resources>

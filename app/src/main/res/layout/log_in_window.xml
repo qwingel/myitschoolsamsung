@@ -21,7 +21,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="3">
+                android:layout_weight="1">
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -31,24 +31,24 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="7"/>
+                    android:layout_weight="1"/>
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="3"
                     android:src="@drawable/plugin_icon">
                 </ImageView>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="7">
+                    android:layout_weight="1">
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="6"
+            android:layout_weight="3"
             android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -101,8 +101,8 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
+                        android:layout_height="0dp"
+                        android:layout_weight="5"
                         android:orientation="horizontal"
                         android:background="@drawable/edittext">
                         <TextView
@@ -144,8 +144,8 @@
                     <Button
                         android:id="@+id/to_next"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_height="0dp"
+                        android:layout_weight="5"
                         android:background="@drawable/mybutton_grey"
                         android:text="Продолжить"
                         android:textSize="24sp"
@@ -159,7 +159,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:text="@string/error_phone_num"
-                        android:textSize="14sp"
+                        android:textSize="2sp"
                         android:fontFamily="@font/raleway_bold"
                         android:textColor="@color/pr_black_green"
                         android:visibility="invisible"
@@ -176,7 +176,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="14"
+            android:layout_weight="7"
             android:orientation="vertical">
         </LinearLayout>
     </LinearLayout>

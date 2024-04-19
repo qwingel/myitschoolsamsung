@@ -137,13 +137,9 @@ public class ConfirmNumber extends AppCompatActivity implements GestureDetector.
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.length() >= 4){
+                if(charSequence.length() == 4){
                     String str = phoneCode.getText().toString();
                     responseCode(getIntentPhoneText, str);
-//                    Intent intent = new Intent(getApplicationContext(), Welcome.class);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                    startActivity(intent);
-//                    overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_left);
                 }
             }
 
