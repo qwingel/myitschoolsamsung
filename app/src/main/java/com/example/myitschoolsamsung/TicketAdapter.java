@@ -54,6 +54,8 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
         TextView tv_Date = convertView.findViewById(R.id.tv_dateNum);
         TextView tv_Price = convertView.findViewById(R.id.tv_Price);
         TextView tv_Time = convertView.findViewById(R.id.tv_Time);
+        TextView tv_fromWhere = convertView.findViewById(R.id.tvTicketFromWhere);
+        TextView tv_toWhere = convertView.findViewById(R.id.tvTicketToWhere);
         LinearLayout ll_BackTickets = convertView.findViewById(R.id.lv_Background);
 
         if (setBackTickets(lineData[CONST_ID_TOWHERE]) != 0) ll_BackTickets.setBackground(getDrawable(getContext(), setBackTickets(lineData[CONST_ID_TOWHERE])));
@@ -62,7 +64,8 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
         tv_Date.setText(lineData[CONST_ID_DATE]);
         tv_Price.setText(lineData[CONST_ID_PRICE] + "₽");
         tv_Time.setText(lineData[CONST_ID_TIMEOUT] + " - " + lineData[CONST_ID_TIMETO]);
-
+        tv_toWhere.setText(lineData[CONST_ID_TOWHERE]);
+        tv_fromWhere.setText(lineData[CONST_ID_FROMWHERE]);
 
         return convertView;
     }
