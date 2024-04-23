@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
     <LinearLayout
+        android:id="@+id/lv_Background"
         android:layout_width="match_parent"
         android:layout_height="123dp"
         android:layout_weight="9"

@@ -37,7 +37,8 @@
         <activity android:name=".Welcome"
             android:screenOrientation="sensorPortrait"/>
         <activity android:name=".HomeScreen"
-            android:screenOrientation="sensorPortrait"/>
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

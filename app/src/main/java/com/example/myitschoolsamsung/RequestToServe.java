@@ -13,7 +13,7 @@ import retrofit2.http.POST;
 
 public class RequestToServe {
 
-    public static final String SQurl = "http://192.168.43.40";
+    public static final String SQurl = "http://192.168.8.26";
     public static class ResponseMessage{
         public String status, message;
 

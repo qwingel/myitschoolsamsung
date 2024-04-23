@@ -18,4 +18,5 @@
     <string name="nearestTicket">ближайший рейс</string>
     <string name="theBestPrice">лучшая цена</string>
     <string name="delayedTickets">Отложенные\nбилеты (0)</string>
+    <string name="choise_Cities">Выберите город</string>
 </resources>
