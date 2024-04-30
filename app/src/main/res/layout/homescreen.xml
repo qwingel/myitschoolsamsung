@@ -269,12 +269,12 @@
                     android:id="@+id/textViewFromTo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="4"
                     android:fontFamily="@font/raleway_medium"
                     android:textSize="20sp"
                     android:textColor="#000000"
                     android:text="@string/choise_Cities"
-                    android:gravity="center|top">
+                    android:paddingLeft="50dp">
                 </TextView>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -287,7 +287,6 @@
             android:id="@+id/list_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:dividerHeight="25dp"
             android:layout_weight="430">
         </ListView>
     </LinearLayout>

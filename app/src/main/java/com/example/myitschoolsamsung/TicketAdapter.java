@@ -2,6 +2,7 @@ package com.example.myitschoolsamsung;
 
 import static androidx.appcompat.content.res.AppCompatResources.getDrawable;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,34 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
         return 0;
     }
 
+    public void setBackSeparator(int position, View convertView){
+        TextView tv = convertView.findViewById(R.id.lv_tvTicket);
+
+        System.out.println("POSITITITITIITITON ->" + position);
+        System.out.println("POSITITITITIITITON ->" + position);
+        System.out.println("POSITITITITIITITON ->" + position);
+        switch (position){
+            case 0:
+                tv.setText("Ближайший рейс");
+                break;
+
+
+            case 1:
+                tv.setText("Лучшая цена");
+                break;
+
+
+//            default:
+//                LinearLayout lU = convertView.findViewById(R.id.lv_Up); lU.setLayoutParams(new LinearLayout.LayoutParams(-1, 0, 48f));
+//                LinearLayout lD = convertView.findViewById(R.id.lv_Down); lD.setLayoutParams(new LinearLayout.LayoutParams(-1, 0, 48f));
+//
+//                tv.setText("");
+//                tv.setBackground(getDrawable(getContext(), R.drawable.poloska));
+//                break;
+        }
+    }
+
+    @Override
     public View getView(
             int position,
             View convertView,
@@ -58,6 +87,7 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
         TextView tv_toWhere = convertView.findViewById(R.id.tvTicketToWhere);
         LinearLayout ll_BackTickets = convertView.findViewById(R.id.lv_Background);
 
+        setBackSeparator(position, convertView);
         if (setBackTickets(lineData[CONST_ID_TOWHERE]) != 0) ll_BackTickets.setBackground(getDrawable(getContext(), setBackTickets(lineData[CONST_ID_TOWHERE])));
 
         tv_Month.setText(lineData[CONST_ID_MONTH]);

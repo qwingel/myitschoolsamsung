@@ -83,7 +83,7 @@ public class HomeScreen extends AppCompatActivity{
         fromWhere = (AutoCompleteTextView) findViewById(R.id.from_Where);
         toWhere = (AutoCompleteTextView) findViewById(R.id.to_Where);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.custom_item, R.id.autoCompleteItem,  sz_Cities);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.custom_item, R.id.autoCompleteItem,    sz_Cities);
         fromWhere.setThreshold(1);
         toWhere.setThreshold(1);
         fromWhere.setAdapter(adapter);
