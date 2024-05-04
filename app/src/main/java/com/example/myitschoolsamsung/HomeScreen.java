@@ -83,16 +83,16 @@ public class HomeScreen extends AppCompatActivity{
         fromWhere = (AutoCompleteTextView) findViewById(R.id.from_Where);
         toWhere = (AutoCompleteTextView) findViewById(R.id.to_Where);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.custom_item, R.id.autoCompleteItem,    sz_Cities);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.custom_item, R.id.autoCompleteItem, sz_Cities);
         fromWhere.setThreshold(1);
         toWhere.setThreshold(1);
         fromWhere.setAdapter(adapter);
         toWhere.setAdapter(adapter);
 
         profileBut.setOnClickListener(view -> {
-            this.getSharedPreferences("account", Context.MODE_PRIVATE).edit().clear().apply();
-            Intent intent = new Intent(getApplicationContext(), LogIn.class);
+            Intent intent = new Intent(getApplicationContext(), Profile.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_right);
         });
 //        responseTickets("Sktr", "Moscow", "*", "null_1_null_any_null");
 

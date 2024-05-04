@@ -19,4 +19,19 @@
     <string name="theBestPrice">лучшая цена</string>
     <string name="delayedTickets">Отложенные\nбилеты (0)</string>
     <string name="choise_Cities">Выберите город</string>
+    <string name="profileText">Профиль</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="country">Страна</string>
+    <string name="Number">Номер</string>
+    <string name="Document">Документ</string>
+    <string name="Valuta">Валюта</string>
+    <string name="RussianFederation">RUSSIAN FEDERATION</string>
+    <string name="Rub">RUB</string>
+    <string name="DocHide">**** ******</string>
+    <string name="Logout">Выйти из аккаунта</string>
+    <string name="oooskyline">ООО Авиакомпания \"скайлайн\"</string>
+    <string name="policy">Политика конфиденциальности</string>
+    <string name="aboutCompany">О компании</string>
+    <string name="contact">Контакты</string>
 </resources>

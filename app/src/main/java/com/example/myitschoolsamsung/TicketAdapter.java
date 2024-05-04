@@ -42,28 +42,27 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
 
     public void setBackSeparator(int position, View convertView){
         TextView tv = convertView.findViewById(R.id.lv_tvTicket);
-
-        System.out.println("POSITITITITIITITON ->" + position);
-        System.out.println("POSITITITITIITITON ->" + position);
-        System.out.println("POSITITITITIITITON ->" + position);
+        LinearLayout ll = convertView.findViewById(R.id.ll_separator);
         switch (position){
             case 0:
                 tv.setText("Ближайший рейс");
+                ll.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,100));
                 break;
 
 
             case 1:
                 tv.setText("Лучшая цена");
+                ll.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,100));
                 break;
 
 
-//            default:
+            default:
 //                LinearLayout lU = convertView.findViewById(R.id.lv_Up); lU.setLayoutParams(new LinearLayout.LayoutParams(-1, 0, 48f));
 //                LinearLayout lD = convertView.findViewById(R.id.lv_Down); lD.setLayoutParams(new LinearLayout.LayoutParams(-1, 0, 48f));
-//
-//                tv.setText("");
-//                tv.setBackground(getDrawable(getContext(), R.drawable.poloska));
-//                break;
+
+                tv.setText("");
+                ll.setLayoutParams(new LinearLayout.LayoutParams(0,0,0));
+                break;
         }
     }
 
