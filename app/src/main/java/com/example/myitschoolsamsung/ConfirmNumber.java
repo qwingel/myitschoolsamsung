@@ -80,7 +80,7 @@ public class ConfirmNumber extends AppCompatActivity implements GestureDetector.
                     } else {
                         String[] user_data = response.body().user_data.split(" ");
                         String phone = getIntentPhoneText;
-//                        String login = user_data[0];
+                        String pass = user_data[0];
                         String name = user_data[1];
                         String surname = user_data[2];
                         String pass_series = user_data[3];
@@ -89,6 +89,7 @@ public class ConfirmNumber extends AppCompatActivity implements GestureDetector.
 
                         SharedPreferences.Editor editor = sPref.edit();
                         editor.putString("phone", phone);
+                        editor.putString("password", pass);
 //                        editor.putString("login", login);
                         editor.putString("name", name);
                         editor.putString("surname", surname);

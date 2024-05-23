@@ -210,7 +210,7 @@
                         android:textColor="#000000"
                         android:fontFamily="@font/raleway"
                         android:gravity="center"
-                        android:paddingLeft="10dp"
+                        android:paddingLeft="6dp"
                         android:paddingRight="5dp"
                         android:drawableStart="@drawable/countpass"
                         tools:ignore="TouchTargetSizeCheck"></Button>

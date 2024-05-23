@@ -2,6 +2,9 @@ package com.example.myitschoolsamsung;
 
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -13,7 +16,16 @@ import retrofit2.http.POST;
 
 public class RequestToServe {
 
-    public static final String SQurl = "http://192.168.8.26";
+    public static final String SQurl = "http://antarktida.pythonanywhere.com";
+    public static List<String> ids = new ArrayList<String>();
+    public static String[] getIds() {
+        String[] s1 = new String[ids.size()];
+        for(int i = 0; i < ids.size(); i++){
+            s1[i] = ids.get(i);
+        }
+        return s1;
+    }
+    public static void addId(String id){ ids.add(id); }
     public static class ResponseMessage{
         public String status, message;
 
@@ -67,6 +79,17 @@ public class RequestToServe {
         }
     }
 
+    public static class ResponseDelayedTickets{
+        public String status, message;
+        @Override
+        public String toString(){
+            return "ResponseMessage{" +
+                    "status='" + status + '\'' +
+                    ", message='" + message + '\'' +
+                    '}';
+        }
+    }
+
     public static class RegistrationRequest{
         public RegistrationRequest(String phone, String password){
             this.phone = phone;
@@ -97,6 +120,13 @@ public class RequestToServe {
             String fromWhere, toWhere, date, filters;
     }
 
+    public static class DelayedTicketsRequest{
+        public DelayedTicketsRequest(String id){
+            this.id = id;
+        }
+        String id;
+    }
+
     public interface UserService {
         @POST("/registration")
         Call<ResponseRegistrationMessage> registration(@Body RegistrationRequest registrationRequest);
@@ -106,6 +136,8 @@ public class RequestToServe {
         Call<ResponseCodeMessage> code(@Body CodeRequest codeRequest);
         @POST("/tickets")
         Call<ResponseTicketsMessage> tickets(@Body TicketsRequest ticketsRequest);
+        @POST("/dtickets")
+        Call<ResponseDelayedTickets> dtickets(@Body DelayedTicketsRequest delayedTicketsRequest);
         @GET("/logout")
         Call<ResponseMessage> logout();
     }

@@ -34,4 +34,5 @@
     <string name="policy">Политика конфиденциальности</string>
     <string name="aboutCompany">О компании</string>
     <string name="contact">Контакты</string>
+    <string name="confirmwithpassword">Подтвердите для внесения изменений</string>
 </resources>

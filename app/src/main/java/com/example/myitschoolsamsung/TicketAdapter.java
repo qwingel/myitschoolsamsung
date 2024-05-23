@@ -2,8 +2,11 @@ package com.example.myitschoolsamsung;
 
 import static androidx.appcompat.content.res.AppCompatResources.getDrawable;
 
+import static com.example.myitschoolsamsung.R.*;
+
 import android.app.ActionBar;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class TicketAdapter extends ArrayAdapter<String[]> {
+    int idLL;
     final static int CONST_ID_TICKETID = 0;
     final static int CONST_ID_FROMWHERE = 1;
     final static int CONST_ID_TOWHERE = 2;
@@ -27,8 +31,17 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
     final static int CONST_ID_BAGGAGE = 10;
     final static int CONST_ID_TICKETSCOUNT = 11;
     final static int CONST_ID_PRICE = 12;
-    public TicketAdapter(Context context, String[][] data){
-        super(context, R.layout.ticket, data);
+
+    public boolean isInArray(String required, String[] array){
+        for (String value: array){
+            if(value.equals(required)) return true;
+        }
+        return false;
+    }
+
+    public TicketAdapter(Context context, int layout,  String[][] data){
+        super(context, layout, data);
+        this.idLL = layout;
     }
 
     public int setBackTickets(String city){
@@ -43,26 +56,33 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
     public void setBackSeparator(int position, View convertView){
         TextView tv = convertView.findViewById(R.id.lv_tvTicket);
         LinearLayout ll = convertView.findViewById(R.id.ll_separator);
-        switch (position){
-            case 0:
-                tv.setText("Ближайший рейс");
-                ll.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,100));
-                break;
+        if (idLL == R.id.list_view){
+            switch (position){
+                case 0:
+                    tv.setText("Ближайший рейс");
+                    ll.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,100));
+                    break;
 
 
-            case 1:
-                tv.setText("Лучшая цена");
-                ll.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,100));
-                break;
+                case 1:
+                    tv.setText("Лучшая цена");
+                    ll.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,100));
+                    break;
 
 
-            default:
+                default:
 //                LinearLayout lU = convertView.findViewById(R.id.lv_Up); lU.setLayoutParams(new LinearLayout.LayoutParams(-1, 0, 48f));
 //                LinearLayout lD = convertView.findViewById(R.id.lv_Down); lD.setLayoutParams(new LinearLayout.LayoutParams(-1, 0, 48f));
 
-                tv.setText("");
-                ll.setLayoutParams(new LinearLayout.LayoutParams(0,0,0));
-                break;
+                    tv.setText("");
+                    ll.setLayoutParams(new LinearLayout.LayoutParams(0,0,0));
+                    break;
+            }
+        } else {
+            tv.setText("");
+            ll.setBackground(getDrawable(getContext(), color.pr_light_grey));
+            ll.setLayoutParams(new LinearLayout.LayoutParams(0,0,0));
+
         }
     }
 
@@ -88,6 +108,16 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
 
         setBackSeparator(position, convertView);
         if (setBackTickets(lineData[CONST_ID_TOWHERE]) != 0) ll_BackTickets.setBackground(getDrawable(getContext(), setBackTickets(lineData[CONST_ID_TOWHERE])));
+
+        ll_BackTickets.setOnClickListener(view -> {
+            String[] ids = RequestToServe.getIds();
+            if (!isInArray(lineData[CONST_ID_TICKETID], ids)) {
+                RequestToServe.addId(lineData[CONST_ID_TICKETID]);
+                Toast.makeText(getContext(), "Вы добавили билет в корзину", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getContext(), "Этот билет уже есть в вашей корзине", Toast.LENGTH_LONG).show();
+            }
+        });
 
         tv_Month.setText(lineData[CONST_ID_MONTH]);
         tv_Date.setText(lineData[CONST_ID_DATE]);

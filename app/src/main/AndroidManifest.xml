@@ -41,6 +41,8 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Profile"
             android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".Basket"
+            android:screenOrientation="sensorPortrait"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

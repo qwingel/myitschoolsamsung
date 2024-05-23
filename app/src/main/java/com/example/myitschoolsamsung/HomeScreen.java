@@ -54,7 +54,7 @@ public class HomeScreen extends AppCompatActivity{
                             ticketMatrix[i] = rows[i].replace("'", "").split(", ");
                         }
                         listView = findViewById(R.id.list_view);
-                        TicketAdapter ticketAdapter = new TicketAdapter(getApplicationContext(), ticketMatrix);
+                        TicketAdapter ticketAdapter = new TicketAdapter(getApplicationContext(), R.id.list_view, ticketMatrix);
                         listView.setAdapter(ticketAdapter);
                     }
                 }
@@ -94,6 +94,13 @@ public class HomeScreen extends AppCompatActivity{
             startActivity(intent);
             overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_right);
         });
+
+        basketBut.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), Basket.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_left);
+        });
+
 //        responseTickets("Sktr", "Moscow", "*", "null_1_null_any_null");
 
         fromWhere.addTextChangedListener(new TextWatcher() {

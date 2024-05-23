@@ -28,7 +28,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4">
                 </LinearLayout>
-
                 <Button
                     android:id="@+id/toTicketsActivity"
                     android:layout_width="0dp"
@@ -37,12 +36,14 @@
                     android:background="@drawable/search_icon"
                     android:contentDescription="123"
                     android:minHeight="16dp"
-                    tools:ignore="TouchTargetSizeCheck"></Button>
+                    tools:ignore="TouchTargetSizeCheck">
+                </Button>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="30">
                 </LinearLayout>
+
                 <Button
                     android:id="@+id/basket"
                     android:layout_width="0dp"
@@ -50,8 +51,7 @@
                     android:layout_weight="4"
                     android:background="@drawable/basket_icon"
                     android:minHeight="16dp"
-                    android:contentDescription="123"
-                    tools:ignore="TouchTargetSizeCheck"></Button>
+                    tools:ignore="TouchTargetSizeCheck" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -85,21 +85,48 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2">
                 </LinearLayout>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:text="@string/profileText"
-                    android:textSize="32sp"
-                    android:textColor="#000000"
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center">
-                </TextView>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2">
+                    android:layout_weight="4">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:text="@string/profileText"
+                        android:textSize="32sp"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/raleway_medium"
+                        android:gravity="center">
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+                        </LinearLayout>
+                        <Button
+                            android:id="@+id/b_profileEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:background="@drawable/editprofile">
+                        </Button>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -443,16 +470,17 @@
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="97">
+                            android:layout_weight="90">
                         </LinearLayout>
+
                         <Button
                             android:id="@+id/telegramBut"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="33"
+                            android:background="@drawable/telegram"
                             android:text="123"
-                            android:background="@drawable/telegram">
-                        </Button>
+                            tools:ignore="TouchTargetSizeCheck"></Button>
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
