@@ -136,31 +136,66 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
                 </LinearLayout>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="147.5"
                     android:text="@string/name"
                     android:textSize="20sp"
                     android:textColor="#000000"
                     android:gravity="center|left">
                 </TextView>
-                <TextView
+                <EditText
                     android:id="@+id/profileName"
                     android:layout_width="0dp"
                     android:text="123"
                     android:textSize="20sp"
                     android:textColor="#000000"
                     android:gravity="center"
+                    android:enabled="false"
+                    android:background="?android:colorBackground"
                     android:layout_height="match_parent"
-                    android:layout_weight="4">
-                </TextView>
+                    android:layout_weight="147.5">
+                </EditText>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="295"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangle_26">
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -171,47 +206,82 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
                 </LinearLayout>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="147.5"
                     android:text="@string/surname"
                     android:textSize="20sp"
                     android:textColor="#000000"
                     android:gravity="center|left">
                 </TextView>
-                <TextView
+                <EditText
                     android:id="@+id/profileSurname"
                     android:layout_width="0dp"
                     android:text="123"
                     android:textSize="20sp"
                     android:textColor="#000000"
                     android:gravity="center"
+                    android:enabled="false"
+                    android:background="?android:colorBackground"
                     android:layout_height="match_parent"
-                    android:layout_weight="4">
-                </TextView>
+                    android:layout_weight="147.5">
+                </EditText>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="82"
+                android:layout_weight="6"
                 android:orientation="horizontal">
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="295"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangle_26">
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="52"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
                 </LinearLayout>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="147.5"
                     android:text="@string/country"
                     android:textSize="20sp"
                     android:textColor="#000000"
@@ -224,28 +294,61 @@
                     android:textSize="20sp"
                     android:textColor="#000000"
                     android:gravity="center"
-                    android:layout_weight="4">
+                    android:layout_weight="147.5">
                 </TextView>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="70"
+                android:layout_weight="6"
                 android:orientation="horizontal">
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="295"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangle_26">
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="52"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
                 </LinearLayout>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="147.5"
                     android:text="@string/Number"
                     android:textSize="20sp"
                     android:textColor="#000000"
@@ -255,50 +358,121 @@
                     android:id="@+id/profileNum"
                     android:layout_width="0dp"
                     android:text="123"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:textColor="#000000"
                     android:gravity="center"
+                    android:enabled="false"
+                    android:background="?android:colorBackground"
                     android:layout_height="match_parent"
-                    android:layout_weight="4">
+                    android:layout_weight="147.5">
                 </TextView>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="77"
+                android:layout_weight="6"
                 android:orientation="horizontal">
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="295"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangle_26">
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="52"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
                 </LinearLayout>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="147.5"
                     android:text="@string/Document"
                     android:textSize="20sp"
                     android:textColor="#000000"
                     android:gravity="center|left">
                 </TextView>
-                <TextView
+                <EditText
+                    android:id="@+id/document"
                     android:layout_width="0dp"
                     android:text="@string/DocHide"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:gravity="center"
+                    android:enabled="false"
+                    android:background="?android:colorBackground"
                     android:textColor="#000000"
                     android:layout_height="match_parent"
-                    android:layout_weight="4">
-                </TextView>
+                    android:layout_weight="147.5">
+                </EditText>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="295"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangle_26">
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40">
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -309,12 +483,12 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
                 </LinearLayout>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="147.5"
                     android:text="@string/Valuta"
                     android:textSize="20sp"
                     android:textColor="#000000"
@@ -327,12 +501,12 @@
                     android:textColor="#000000"
                     android:gravity="center"
                     android:layout_height="match_parent"
-                    android:layout_weight="4">
+                    android:layout_weight="147.5">
                 </TextView>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4">
+                    android:layout_weight="40">
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout

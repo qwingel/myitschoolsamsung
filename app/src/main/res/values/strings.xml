@@ -26,7 +26,7 @@
     <string name="Number">Номер</string>
     <string name="Document">Документ</string>
     <string name="Valuta">Валюта</string>
-    <string name="RussianFederation">RUSSIAN FEDERATION</string>
+    <string name="RussianFederation">RUS</string>
     <string name="Rub">RUB</string>
     <string name="DocHide">**** ******</string>
     <string name="Logout">Выйти из аккаунта</string>

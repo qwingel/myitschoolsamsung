@@ -96,7 +96,7 @@ public class ConfirmNumber extends AppCompatActivity implements GestureDetector.
                         editor.putString("passport_series", pass_series);
                         editor.putString("passport_number", pass_number);
                         editor.putString("birthday", birthday);
-                        editor.commit();
+                        editor.apply();
 
                         Intent intent = new Intent(getApplicationContext(), Welcome.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

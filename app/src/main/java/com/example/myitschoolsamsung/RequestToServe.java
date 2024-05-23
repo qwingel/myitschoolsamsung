@@ -90,6 +90,17 @@ public class RequestToServe {
         }
     }
 
+    public static class ResponseUpdateProfile{
+        public String status, message;
+        @Override
+        public String toString(){
+            return "ResponseMessage{" +
+                    "status'"+ status +'\'' +
+                    ", message='" + message +'\'' +
+                    '}';
+        }
+    }
+
     public static class RegistrationRequest{
         public RegistrationRequest(String phone, String password){
             this.phone = phone;
@@ -127,6 +138,17 @@ public class RequestToServe {
         String id;
     }
 
+    public static class UpdateProfileRequest{
+        public UpdateProfileRequest(String phone, String name, String surname, String passS, String passN){
+            this.name = name;
+            this.surname = surname;
+            this.passS = passS;
+            this.passN = passN;
+            this.phone = phone;
+        }
+        String phone, name, surname, passS, passN;
+    }
+
     public interface UserService {
         @POST("/registration")
         Call<ResponseRegistrationMessage> registration(@Body RegistrationRequest registrationRequest);
@@ -138,6 +160,8 @@ public class RequestToServe {
         Call<ResponseTicketsMessage> tickets(@Body TicketsRequest ticketsRequest);
         @POST("/dtickets")
         Call<ResponseDelayedTickets> dtickets(@Body DelayedTicketsRequest delayedTicketsRequest);
+        @POST("/update")
+        Call<ResponseUpdateProfile> updateProfile(@Body UpdateProfileRequest updateProfileRequest);
         @GET("/logout")
         Call<ResponseMessage> logout();
     }
