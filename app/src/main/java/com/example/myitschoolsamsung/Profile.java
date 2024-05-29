@@ -26,10 +26,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Profile extends AppCompatActivity {
 
-    Button Logout, toTickets, telegram, editProfile, confirmPassForEdit;
+    Button Logout, toTickets, telegram, editProfile, confirmPassForEdit, basket;
     EditText name, surname, document, et_Password;
     TextView profileNum;
-    SharedPreferences sPref;
+    SharedPreferences sPref, tsPref;
     boolean isEditing = false;
     @SuppressLint({"MissingInflatedId", "ResourceAsColor"})
     @Override

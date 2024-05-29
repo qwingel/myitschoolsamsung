@@ -1,7 +1,9 @@
 package com.example.myitschoolsamsung;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,6 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,18 +26,27 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class HomeScreen extends AppCompatActivity{
+public class HomeScreen extends AppCompatActivity implements LifecycleObserver {
     String[][] resultTickets;
     ListView listView;
     String s_fromCity = "Сыктывкар", s_toCity = "Москва";
     TextView tv_FromTo;
     Button profileBut, basketBut, calendarBut, countPassBut, filtersBut;
     AutoCompleteTextView fromWhere, toWhere;
+    SharedPreferences sPref;
 
     String[] sz_Cities = {"Сыктывкар", "Москва", "Санкт-Петербург", "Сочи"};
     public String getCity(String city){
         return city.equalsIgnoreCase("Сыктывкар") ? city = "Sktr" : city.equalsIgnoreCase("Сочи") ? city = "Sochi" : city.equalsIgnoreCase("Санкт-Петербург") ? city = "SPB" : "Moscow";
     }
+
+    public boolean isInArray(String required, String[] array){
+        for (String value: array){
+            if(value.equals(required)) return true;
+        }
+        return false;
+    }
+
     public void responseTickets(String fromWhere, String toWhere, String date, String filters){
         Retrofit retrofit = new Retrofit.Builder().baseUrl(RequestToServe.SQurl)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -77,6 +92,19 @@ public class HomeScreen extends AppCompatActivity{
         calendarBut = (Button) findViewById(R.id.calendar);
         countPassBut = (Button) findViewById(R.id.countPass);
         filtersBut = (Button) findViewById(R.id.filters);
+
+        sPref = getSharedPreferences("savedTickets", Context.MODE_PRIVATE);
+        String sz_Tickets = sPref.getString("tickets", null);
+        if (sz_Tickets != null) {
+            String[] tickets = sz_Tickets.split(" ");
+            for (String s : tickets) {
+                String[] ids = RequestToServe.getIds();
+                if (!isInArray(s, ids)) RequestToServe.addId(s);
+            }
+        }
+
+        if (RequestToServe.getIds().length > 0) basketBut.setBackground(getDrawable(R.drawable.basket_dot_icon));
+        else basketBut.setBackground(getDrawable(R.drawable.basket_icon));
 
         tv_FromTo = (TextView) findViewById(R.id.textViewFromTo);
 
@@ -171,13 +199,7 @@ public class HomeScreen extends AppCompatActivity{
                 }
             }
         });
-//        basketBut.setOnClickListener(view -> {
-//            Intent intent = new Intent(getApplicationContext(), Basket.class);
-//            startActivity(intent);
-//        });
-
-//        profileBut.setOnClickListener(view -> {
-//
-//        });
     }
+
+
 }

@@ -1,7 +1,19 @@
 package com.example.myitschoolsamsung;
 
+import android.content.SharedPreferences;
+import android.os.Environment;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,13 +23,14 @@ import retrofit2.Retrofit;
 import retrofit2.Call;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-public class RequestToServe {
-
+public class RequestToServe{
     public static final String SQurl = "http://antarktida.pythonanywhere.com";
     public static List<String> ids = new ArrayList<String>();
+
     public static String[] getIds() {
         String[] s1 = new String[ids.size()];
         for(int i = 0; i < ids.size(); i++){
@@ -25,7 +38,13 @@ public class RequestToServe {
         }
         return s1;
     }
-    public static void addId(String id){ ids.add(id); }
+    public static void addId(String id){
+        ids.add(id);
+    }
+
+    public static void removeId(String id){
+        ids.remove(ids.indexOf(id));
+    }
     public static class ResponseMessage{
         public String status, message;
 

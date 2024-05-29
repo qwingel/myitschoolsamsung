@@ -42,22 +42,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="30">
-                </LinearLayout>
-                <Button
-                    android:id="@+id/basket"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4"
-                    android:background="@drawable/basket_icon"
-                    android:minHeight="16dp"
-                    android:contentDescription="123"
-                    tools:ignore="TouchTargetSizeCheck">
-                </Button>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4">
+                    android:layout_weight="38">
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout

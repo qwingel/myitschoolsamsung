@@ -1,6 +1,7 @@
 package com.example.myitschoolsamsung;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ListView;
@@ -22,6 +23,7 @@ public class Basket extends AppCompatActivity {
     ListView listView;
     TextView tv_dTicketsCount;
     Button backToTickets;
+    SharedPreferences sPref;
 
     String[] sz_Cities = {"Сыктывкар", "Москва", "Санкт-Петербург", "Сочи"};
     public String getCity(String city){
@@ -55,7 +57,7 @@ public class Basket extends AppCompatActivity {
                             ticketMatrix[i] = rows[i].replace("'", "").split(", ");
                         }
                         listView = findViewById(R.id.list_view_d);
-                        TicketAdapter ticketAdapter = new TicketAdapter(getApplicationContext(), R.id.list_view_d,ticketMatrix);
+                        TicketAdapter ticketAdapter = new TicketAdapter(getApplicationContext(), R.id.list_view_d, ticketMatrix);
                         listView.setAdapter(ticketAdapter);
                     }
                 }

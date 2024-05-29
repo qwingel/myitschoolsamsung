@@ -50,7 +50,8 @@
                     android:background="@drawable/basket_icon"
                     android:minHeight="16dp"
                     android:contentDescription="123"
-                    tools:ignore="TouchTargetSizeCheck"></Button>
+                    tools:ignore="TouchTargetSizeCheck">
+                </Button>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

@@ -36,8 +36,7 @@ public class ConfirmNumber extends AppCompatActivity implements GestureDetector.
     SharedPreferences sPref;
 
     private float x1, x2;
-    private static int MIN_DISTANCE = 150;
-    final String[] forSavePreferences = {"Login", "Name", "Surname", "Passport_Series", "Passport_Number", "Birthday", "Phone"};
+    final private static int MIN_DISTANCE = 150;
 
 
     public void startTimer(int startMillis, int finishMillis){

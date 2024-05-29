@@ -6,11 +6,13 @@ import static com.example.myitschoolsamsung.R.*;
 
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,6 +33,8 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
     final static int CONST_ID_BAGGAGE = 10;
     final static int CONST_ID_TICKETSCOUNT = 11;
     final static int CONST_ID_PRICE = 12;
+    SharedPreferences sPref;
+    boolean fromHomeScreen;
 
     public boolean isInArray(String required, String[] array){
         for (String value: array){
@@ -41,6 +45,7 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
 
     public TicketAdapter(Context context, int layout,  String[][] data){
         super(context, layout, data);
+        fromHomeScreen = layout == id.list_view;
         this.idLL = layout;
     }
 
@@ -98,6 +103,8 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.ticket, null);
         }
 
+        sPref = getContext().getSharedPreferences("savedTickets", Context.MODE_PRIVATE);
+
         TextView tv_Month = convertView.findViewById(R.id.tv_dateMonth);
         TextView tv_Date = convertView.findViewById(R.id.tv_dateNum);
         TextView tv_Price = convertView.findViewById(R.id.tv_Price);
@@ -105,6 +112,7 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
         TextView tv_fromWhere = convertView.findViewById(R.id.tvTicketFromWhere);
         TextView tv_toWhere = convertView.findViewById(R.id.tvTicketToWhere);
         LinearLayout ll_BackTickets = convertView.findViewById(R.id.lv_Background);
+        Button basket = convertView.findViewById(id.basket);
 
         setBackSeparator(position, convertView);
         if (setBackTickets(lineData[CONST_ID_TOWHERE]) != 0) ll_BackTickets.setBackground(getDrawable(getContext(), setBackTickets(lineData[CONST_ID_TOWHERE])));
@@ -112,10 +120,25 @@ public class TicketAdapter extends ArrayAdapter<String[]> {
         ll_BackTickets.setOnClickListener(view -> {
             String[] ids = RequestToServe.getIds();
             if (!isInArray(lineData[CONST_ID_TICKETID], ids)) {
+                SharedPreferences.Editor edit = sPref.edit();
+                edit.putString("tickets", lineData[CONST_ID_TICKETID] + " ");
+                edit.apply();
+
                 RequestToServe.addId(lineData[CONST_ID_TICKETID]);
+//                basket.setBackground(getDrawable(getContext(), R.drawable.basket_dot_icon));
                 Toast.makeText(getContext(), "Вы добавили билет в корзину", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(getContext(), "Этот билет уже есть в вашей корзине", Toast.LENGTH_LONG).show();
+                if (!fromHomeScreen) {
+                    String result = sPref.getString("tickets", null);
+                    String afterReplace = result.replace(lineData[CONST_ID_TICKETID] + " ", "");
+                    SharedPreferences.Editor edit = sPref.edit();
+                    edit.putString("tickets", afterReplace);
+                    edit.apply();
+
+                    RequestToServe.removeId(lineData[CONST_ID_TICKETID]);
+                    Toast.makeText(getContext(), "Вы купили билетик", Toast.LENGTH_LONG).show();
+                }
+                else Toast.makeText(getContext(), "Этот билет уже есть в корзине", Toast.LENGTH_SHORT).show();
             }
         });
 
