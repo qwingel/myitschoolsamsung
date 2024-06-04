@@ -10,7 +10,6 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintSet;
 
 public class Log_in_window extends AppCompatActivity implements GestureDetector.OnGestureListener {
     Button authorization;
