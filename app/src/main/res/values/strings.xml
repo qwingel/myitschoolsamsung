@@ -35,4 +35,15 @@
     <string name="aboutCompany">О компании</string>
     <string name="contact">Контакты</string>
     <string name="confirmwithpassword">Подтвердите для внесения изменений</string>
+    <string name="passangersandclass">Пассажиры и класс</string>
+    <string name="adult">Взрослые</string>
+    <string name="adult12">От 12 лет</string>
+    <string name="kid">Дети</string>
+    <string name="kid212">От 2 до 12 лет</string>
+    <string name="child">Младенцы</string>
+    <string name="child2">До 2 лет, без места</string>
+    <string name="econom">Эконом</string>
+    <string name="comfort">Комфорт</string>
+    <string name="business">Бизнес</string>
+    <string name="thefirstclass">Первый класс</string>
 </resources>

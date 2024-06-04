@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             getSupportActionBar().hide();
 
-            startTimer(2300, 1000);
+            startTimer(300, 1000);
         }
     }
 }

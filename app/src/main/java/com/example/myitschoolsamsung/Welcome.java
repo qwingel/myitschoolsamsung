@@ -29,7 +29,7 @@ public class Welcome extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_left);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         }.start();
     }
@@ -49,6 +49,6 @@ public class Welcome extends AppCompatActivity {
         if (name.equals("Пусто")) welcome_text.setText("Добро\nпожаловать!");
         else welcome_text.setText("Добро\nпожаловать,\n" + name + "!");
 
-        startTimer(2100, 1000);
+        startTimer(1100, 1000);
     }
 }
