@@ -36,7 +36,7 @@ public class HomeScreen extends AppCompatActivity implements LifecycleObserver {
     SharedPreferences sPref;
 
     static String filters = "null_1_null_any_null";
-
+    static String fdate = "*";
 
     String[] sz_Cities = {"Сыктывкар", "Москва", "Санкт-Петербург", "Сочи"};
     public String getCity(String city){
@@ -53,6 +53,10 @@ public class HomeScreen extends AppCompatActivity implements LifecycleObserver {
     public static void setFilters(String classes, int ticketsCount, boolean isKid, boolean isChild){
         filters = String.valueOf(ticketsCount) + "_" + (isChild ? "1" : "0") + "_" + (isKid ? "1" : "0") + "_" + classes + "_null";
         System.out.println(filters);
+    }
+
+    public static void setDate(String date1){
+        fdate = date1;
     }
 
     public void responseTickets(String fromWhere, String toWhere, String date, String filters){
@@ -141,6 +145,11 @@ public class HomeScreen extends AppCompatActivity implements LifecycleObserver {
             MyBottomSheet mbs = new MyBottomSheet();
             mbs.show(getSupportFragmentManager(), mbs.getTag());
         });
+
+        calendarBut.setOnClickListener(view -> {
+            CalendarBottomSheet cbs = new CalendarBottomSheet();
+            cbs.show(getSupportFragmentManager(), cbs.getTag());
+        });
 //        responseTickets("Sktr", "Moscow", "*", "null_1_null_any_null");
 
         fromWhere.addTextChangedListener(new TextWatcher() {
@@ -172,7 +181,7 @@ public class HomeScreen extends AppCompatActivity implements LifecycleObserver {
                     if (s_fromCity.equalsIgnoreCase(s_toCity)){
                         Toast.makeText(getApplicationContext(), "Вы ввели одинаковые города =)", Toast.LENGTH_LONG).show();
                     } else {
-                        responseTickets(getCity(s_fromCity), getCity(s_toCity), "*", filters);
+                        responseTickets(getCity(s_fromCity), getCity(s_toCity), fdate, filters);
                     }
                 }
             }
@@ -206,7 +215,7 @@ public class HomeScreen extends AppCompatActivity implements LifecycleObserver {
                     if (s_fromCity.equalsIgnoreCase(s_toCity)){
                         Toast.makeText(getApplicationContext(), "Вы ввели одинаковые города =)", Toast.LENGTH_LONG).show();
                     } else {
-                        responseTickets(getCity(s_fromCity), getCity(s_toCity), "*", filters);
+                        responseTickets(getCity(s_fromCity), getCity(s_toCity), fdate, filters);
                     }
                 }
             }

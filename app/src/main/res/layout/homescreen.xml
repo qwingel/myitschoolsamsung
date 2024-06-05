@@ -270,7 +270,7 @@
                     android:id="@+id/textViewFromTo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="4"
+                    android:layout_weight="6"
                     android:fontFamily="@font/raleway_medium"
                     android:textSize="20sp"
                     android:textColor="#000000"
