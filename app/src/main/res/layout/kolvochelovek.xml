@@ -411,6 +411,7 @@
                     android:checked="true"
                     android:text="@string/econom"
                     android:textSize="18sp"
+                    android:button="@drawable/radiobutton"
                     android:textColor="#000000">
                 </RadioButton>
                 <RadioButton
@@ -420,6 +421,7 @@
                     android:layout_weight="1"
                     android:text="@string/comfort"
                     android:textSize="18sp"
+                    android:button="@drawable/radiobutton"
                     android:textColor="#000000">
                 </RadioButton>
                 <RadioButton
@@ -429,6 +431,7 @@
                     android:layout_weight="1"
                     android:text="@string/business"
                     android:textSize="18sp"
+                    android:button="@drawable/radiobutton"
                     android:textColor="#000000">
                 </RadioButton>
                 <RadioButton
@@ -438,6 +441,7 @@
                     android:layout_weight="1"
                     android:text="@string/thefirstclass"
                     android:textSize="18sp"
+                    android:button="@drawable/radiobutton"
                     android:textColor="#000000">
                 </RadioButton>
             </LinearLayout>
