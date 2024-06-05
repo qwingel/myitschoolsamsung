@@ -171,15 +171,37 @@ public class MyBottomSheet extends BottomSheetDialogFragment {
     View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             RadioButton rb = (RadioButton)v;
+            boolean isChecked = rb.isEnabled();
             switch (rb.getId()) {
-                case R.id.rb_econom: sz_classes = "ECO";
+                case R.id.rb_econom:
+                    rb_econom.setChecked(true);
+                    rb_comfort.setChecked(false);
+                    rb_business.setChecked(false);
+                    rb_thefirstclass.setChecked(false);
+                    sz_classes = "ECO";
                     break;
-                case R.id.rb_comfort: sz_classes = "CMF";
+                case R.id.rb_comfort:
+                    rb_econom.setChecked(false);
+                    rb_comfort.setChecked(true);
+                    rb_business.setChecked(false);
+                    rb_thefirstclass.setChecked(false);
+                    sz_classes = "CMF";
                     break;
-                case R.id.rb_business: sz_classes = "BUS";
+                case R.id.rb_business:
+                    rb_econom.setChecked(false);
+                    rb_comfort.setChecked(false);
+                    rb_business.setChecked(true);
+                    rb_thefirstclass.setChecked(false);
+                    sz_classes = "BUS";
                     break;
-                case R.id.rb_thefirstclass: sz_classes = "TFC";
+                case R.id.rb_thefirstclass:
+                    rb_econom.setChecked(false);
+                    rb_comfort.setChecked(false);
+                    rb_business.setChecked(false);
+                    rb_thefirstclass.setChecked(true);
+                    sz_classes = "TFC";
                     break;
 
                 default:
