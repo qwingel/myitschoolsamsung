@@ -488,7 +488,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="245"
                 android:text="Выбрать"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textColor="#ffffff"
                 android:fontFamily="@font/raleway_medium"
                 android:background="@drawable/button_green">
