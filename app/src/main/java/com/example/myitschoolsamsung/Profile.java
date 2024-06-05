@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -61,6 +63,8 @@ public class Profile extends AppCompatActivity {
         final View customView = getLayoutInflater().inflate(R.layout.dialog_password, null);
         builder.setView(customView);
         AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
         confirmPassForEdit = (Button) customView.findViewById(R.id.confButForEdit);
         et_Password = (EditText) customView.findViewById(R.id.passconf);
 
